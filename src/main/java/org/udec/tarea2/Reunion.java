@@ -17,7 +17,7 @@ public abstract class Reunion {
     private Instant horaInicio;
     private Instant horaFin;
 
-    //private Invitacion invitacio;
+    //private Invitacion invitacion;
     private List<Nota> notas;
 
     /*
@@ -65,22 +65,56 @@ public abstract class Reunion {
         return java.time.Duration.between(horaInicio, horaFin).toMinutes();
     }
 
+    /**
+     * Inicia la reunión
+     */
     public void iniciar() {
         horaInicio = Instant.now();
     }
 
+    /**
+     * Finaliza la reunión
+     */
     public void finalizar() {
         horaFin = Instant.now();
     }
 
-    public void addNota(Nota nota) {
+    /**
+     * Agrega una nota a la reunión
+     * 
+     * @param nota
+     */
+    public void addNota(String nota) {
         List<Nota> notas = new ArrayList<Nota>();
-        notas.add(nota);
+        notas.add(new Nota(nota));
     }
 
-    public void removeNota(Nota nota) {
-        List<Nota> notas = new ArrayList<Nota>();
-        notas.remove(nota);
+    /**
+     * Elimina una nota de la reunión
+     * 
+     * @param nota
+     */
+    public void removeLastNota(int nota) {
+        if (notas.size() == 0) {
+            return;
+        }
+        int index = nota - 1;                                                   // Calcular el índice
+        if (index >= 0 && index < notas.size()) {                               // Verificar que el índice sea válido
+            notas.remove(index);                                                // Eliminar la nota
+        }
+    }
+
+    /**
+     * Lee las notas de la reunión
+     */
+    public void readNotas() {
+        if (notas.size() == 0) {
+            return;
+        }
+        for (int i = 0; i < notas.size(); i++) {
+            int numero = i + 1;                                                                 
+            System.out.println(numero + ": " + notas.get(i).getContenido());
+        }
     }
 
     // Getters y setters
