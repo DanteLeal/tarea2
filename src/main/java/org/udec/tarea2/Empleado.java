@@ -11,6 +11,7 @@ public class Empleado implements Invitable {
 
     /**
      * Constructor
+     * 
      * @param id
      * @param apellidos
      * @param nombre
@@ -22,6 +23,16 @@ public class Empleado implements Invitable {
         this.nombre = nombre;
         this.correo = correo;
     }
+
+    /**
+     * Invita al empleado
+     */
+    @Override
+    public void invitar() {
+        
+    }
+
+    // Getters y Setters
 
     public String getId() {
         return id;
@@ -53,13 +64,5 @@ public class Empleado implements Invitable {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    /**
-     * Invita al empleado
-     */
-    @Override
-    public void invitar() {
-        
     }
 }
