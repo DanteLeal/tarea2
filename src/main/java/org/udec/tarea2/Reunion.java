@@ -5,7 +5,9 @@ import java.time.Instant;
 import java.time.Duration;
 import java.util.ArrayList;
 
-
+/*
+ * Clase abstracta Reunion que define la estructura de una reunión
+ */
 public abstract class Reunion {
 
     private Date fecha;
@@ -14,6 +16,9 @@ public abstract class Reunion {
     private Instant horaInicio;
     private Instant horaFin;
 
+    /*
+     * Constructor
+     */
     public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin) {
         this.fecha = fecha;
         this.horaPrevista = horaPrevista;
@@ -47,21 +52,18 @@ public abstract class Reunion {
     }
 
     public float obtenerPorcentajeAsistencia() {
-
-        // todo: Return temporal, cambiar a futuro
-        return 0.0F;
+        
     }
 
     public float calcularTiempoReal() {
-        // todo: Return temporal, cambiar a futuro
-        return 0.0F;
+        return java.time.Duration.between(horaInicio, horaFin).toMinutes();
     }
 
     public void iniciar() {
-
+        horaInicio = Instant.now();
     }
 
     public void finalizar() {
-
+        horaFin = Instant.now();
     }
 }
