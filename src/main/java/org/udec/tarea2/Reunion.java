@@ -87,7 +87,6 @@ public abstract class Reunion {
      * @param nota
      */
     public void addNota(String nota) {
-        List<Nota> notas = new ArrayList<Nota>();
         notas.add(new Nota(nota));
     }
 
@@ -96,7 +95,7 @@ public abstract class Reunion {
      * 
      * @param nota
      */
-    public void removeLastNota(int nota) {
+    public void removeNota(int nota) {
         if (notas.size() == 0) {
             return;
         }
