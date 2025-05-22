@@ -17,8 +17,10 @@ public abstract class Reunion {
     private Instant horaInicio;
     private Instant horaFin;
 
-    //private Invitacion invitacion;
     private ArrayList<Nota> notas;
+    private ArrayList<Invitacion> invitaciones;
+    private ArrayList<Asistencia> asistencias;
+    private Empleado organizador;
 
     /*
      * Constructor
@@ -142,4 +144,12 @@ public abstract class Reunion {
     public void setDuracionPrevista(Duration duracionPrevista) {
         this.duracionPrevista = duracionPrevista;
     }
+
+    public Empleado getOrganizador() {
+        return organizador;
+    }
+    public void setOrganizador(Empleado organizador) {
+        this.organizador = organizador;
+    }
+
 }
