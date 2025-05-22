@@ -1,9 +1,9 @@
 package org.udec.tarea2;
-import java.util.List;
+import java.util.ArrayList;
 
 public class Departamento implements Invitable{
     private String nombre;
-    private List<Empleado> empleados;
+    private ArrayList<Empleado> empleados;
 
     /**
      * Constructor de la clase
@@ -12,6 +12,7 @@ public class Departamento implements Invitable{
      */
     public Departamento(String nombre) {
         this.nombre = nombre;
+        this.empleados = new ArrayList<Empleado>();
     }
 
     /**
