@@ -1,11 +1,21 @@
 package org.udec.tarea2;
 
+/**
+ * Clase Empleado que implementa la interfaz Invitable
+ */
 public class Empleado implements Invitable {
     private String id;
     private String apellidos;
     private String nombre;
     private String correo;
 
+    /**
+     * Constructor
+     * @param id
+     * @param apellidos
+     * @param nombre
+     * @param correo
+     */
     public Empleado(String id, String apellidos, String nombre, String correo) {
         this.id = id;
         this.apellidos = apellidos;
@@ -45,8 +55,11 @@ public class Empleado implements Invitable {
         this.correo = correo;
     }
 
+    /**
+     * Invita al empleado
+     */
     @Override
     public void invitar() {
-
+        
     }
 }
