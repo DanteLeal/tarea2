@@ -1,6 +1,7 @@
 package org.udec.tarea2;
 
 import java.util.Date;
+import java.util.List;
 import java.time.Instant;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -15,6 +16,9 @@ public abstract class Reunion {
     private Duration duracionPrevista;
     private Instant horaInicio;
     private Instant horaFin;
+
+    //private Invitacion invitacio;
+    private List<Nota> notas;
 
     /*
      * Constructor
@@ -52,7 +56,9 @@ public abstract class Reunion {
     }
 
     public float obtenerPorcentajeAsistencia() {
-        
+
+        // todo: Return temporal, cambiar a futuro
+        return 0;
     }
 
     public float calcularTiempoReal() {
@@ -65,5 +71,40 @@ public abstract class Reunion {
 
     public void finalizar() {
         horaFin = Instant.now();
+    }
+
+    public void addNota(Nota nota) {
+        List<Nota> notas = new ArrayList<Nota>();
+        notas.add(nota);
+    }
+
+    public void removeNota(Nota nota) {
+        List<Nota> notas = new ArrayList<Nota>();
+        notas.remove(nota);
+    }
+
+    // Getters y setters
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Instant getHoraPrevista() {
+        return horaPrevista;
+    }
+
+    public void setHoraPrevista(Instant horaPrevista) {
+        this.horaPrevista = horaPrevista;
+    }
+
+    public Duration getDuracionPrevista() {
+        return duracionPrevista;
+    }
+
+    public void setDuracionPrevista(Duration duracionPrevista) {
+        this.duracionPrevista = duracionPrevista;
     }
 }
