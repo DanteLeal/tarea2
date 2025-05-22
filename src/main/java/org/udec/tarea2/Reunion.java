@@ -20,15 +20,15 @@ public abstract class Reunion {
     private Instant horaFin;
 
     private ArrayList<Nota> notas;
-    private ArrayList<Invitacion> invitaciones;
-    private ArrayList<Asistencia> asistencias;
+    //private ArrayList<Invitacion> invitaciones;
+    //private ArrayList<Asistencia> asistencias;
 
     /*
      * Constructor
      */
     public Reunion(Empleado organizador, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin) {
         this.organizador = organizador;
-        
+
         this.fecha = fecha;
         this.horaPrevista = horaPrevista;
         this.duracionPrevista = duracionPrevista;
@@ -36,6 +36,8 @@ public abstract class Reunion {
         this.horaFin = horaFin;
 
         this.notas = new ArrayList<Nota>();
+        //this.invitaciones = new ArrayList<Invitacion>();
+        //this.asistencias = new ArrayList<Asistencia>();
     }
 
     public ArrayList<String> obtenerAsistencias() {
