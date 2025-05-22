@@ -114,7 +114,7 @@ public abstract class Reunion {
         }
         for (int i = 0; i < notas.size(); i++) {
             int numero = i + 1;                                                                 
-            System.out.println(numero + ": " + notas.get(i).getContenido());
+            System.out.println("Nota " + numero + ": " + notas.get(i).getContenido());
         }
     }
 
