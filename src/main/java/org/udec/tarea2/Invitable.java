@@ -8,5 +8,6 @@ public interface Invitable {
     /*
      * Método para invitar a un empleado
      */
-    public void invitar();
+    public void invitar(Reunion reunion);
+
 }
