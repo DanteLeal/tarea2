@@ -52,6 +52,8 @@ public class Departamento implements Invitable{
         }
     }
 
+    // Getters y Setters
+
     public String getNombre() {
         return this.nombre;
     }
