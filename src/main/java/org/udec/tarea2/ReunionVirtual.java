@@ -7,12 +7,13 @@ import java.util.Date;
 /**
  * Clase que representa una reunión virtual
  */
-public class ReunionVirtual extends Reunion{
+public class ReunionVirtual extends Reunion {
     private String enlace;
 
     /**
      * Constructor de la clase ReunionVirtual
      * 
+     * @param organizador organizador de la reunión
      * @param fecha fecha de la reunión
      * @param horaPrevista hora prevista de la reunión
      * @param duracionPrevista duración prevista de la reunión
@@ -20,8 +21,8 @@ public class ReunionVirtual extends Reunion{
      * @param horaFin hora de finalización de la reunión
      * @param enlace enlace de la reunión virtual
      */
-    public ReunionVirtual(Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin, String enlace) {
-        super(fecha, horaPrevista, duracionPrevista, horaInicio, horaFin);
+    public ReunionVirtual(Empleado organizador, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin, String enlace) {
+        super(organizador, fecha, horaPrevista, duracionPrevista, horaInicio, horaFin);
         this.enlace = enlace;
     }
 

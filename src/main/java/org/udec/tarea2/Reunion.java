@@ -11,6 +11,8 @@ import java.util.ArrayList;
  */
 public abstract class Reunion {
 
+    private Empleado organizador;
+
     private Date fecha;
     private Instant horaPrevista;
     private Duration duracionPrevista;
@@ -20,12 +22,13 @@ public abstract class Reunion {
     private ArrayList<Nota> notas;
     private ArrayList<Invitacion> invitaciones;
     private ArrayList<Asistencia> asistencias;
-    private Empleado organizador;
 
     /*
      * Constructor
      */
-    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin) {
+    public Reunion(Empleado organizador, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin) {
+        this.organizador = organizador;
+        
         this.fecha = fecha;
         this.horaPrevista = horaPrevista;
         this.duracionPrevista = duracionPrevista;
