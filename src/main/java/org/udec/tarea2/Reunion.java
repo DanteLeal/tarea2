@@ -18,7 +18,7 @@ public abstract class Reunion {
     private Instant horaFin;
 
     //private Invitacion invitacion;
-    private List<Nota> notas;
+    private ArrayList<Nota> notas;
 
     /*
      * Constructor
@@ -29,6 +29,8 @@ public abstract class Reunion {
         this.duracionPrevista = duracionPrevista;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
+
+        this.notas = new ArrayList<Nota>();
     }
 
     public ArrayList<String> obtenerAsistencias() {
