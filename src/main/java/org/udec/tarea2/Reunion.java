@@ -129,11 +129,15 @@ public abstract class Reunion {
 
     // Invitaciones
 
-    public void addInvitacion(Invitable invitable) {
-        if (invitable == null) {
-            return;
+
+    public void addInvitacion(Empleado empleado) {
+        invitaciones.add(new Invitacion(empleado));
+    }
+
+    public void obtenerInvitaciones() {
+        for (int i = 0; i < invitaciones.size(); i++) {
+            System.out.println("Invitación " + (i + 1) + ": " + invitaciones.get(i).getInvitado().getNombre() + " " + invitaciones.get(i).getInvitado().getApellidos());
         }
-        invitable.invitar(this); // Invitar al empleado o departamento a esta reunión
     }
 
     // Getters y setters
