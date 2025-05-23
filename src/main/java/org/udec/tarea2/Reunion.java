@@ -2,6 +2,7 @@ package org.udec.tarea2;
 
 import java.util.Date;
 import java.time.Instant;
+import java.lang.reflect.Array;
 import java.time.Duration;
 import java.util.ArrayList;
 
@@ -134,14 +135,19 @@ public abstract class Reunion {
     /**
      * Lee las notas de la reunión
      */
-    public void obtenerNotas() {
+    public ArrayList<String> obtenerNotas() {
         if (notas.size() == 0) {
-            return;
+            return null;
         }
+
+        ArrayList<String> aux = new ArrayList<>();
+
         for (int i = 0; i < notas.size(); i++) {
             int numero = i + 1;                                                                 
-            System.out.println("Nota " + numero + ": " + notas.get(i).getContenido());
+            aux.add("Nota " + numero + ": " + notas.get(i).getContenido());
         }
+
+        return aux;
     }
 
     // Invitaciones
@@ -150,10 +156,20 @@ public abstract class Reunion {
         invitaciones.add(new Invitacion(empleado));
     }
 
-    public void obtenerInvitaciones() {
+    public ArrayList<String> obtenerInvitaciones() {
+        ArrayList<String> aux = new ArrayList<String>();
+
         for (int i = 0; i < invitaciones.size(); i++) {
-            System.out.println("Invitación " + (i + 1) + ": " + invitaciones.get(i).getInvitado().getId() + ", " + invitaciones.get(i).getInvitado().getApellidos() + ", " + invitaciones.get(i).getInvitado().getNombre() + ", " + invitaciones.get(i).getInvitado().getCorreo());
+            aux.add(
+                invitaciones.get(i).getHora() + ", " +
+                invitaciones.get(i).getInvitado().getId() + ", " + 
+                invitaciones.get(i).getInvitado().getApellidos() + ", " + 
+                invitaciones.get(i).getInvitado().getNombre() + ", " + 
+                invitaciones.get(i).getInvitado().getCorreo()
+            );
         }
+
+        return aux;
     }
 
     // Asistencias
