@@ -22,8 +22,15 @@ public abstract class Reunion {
     private ArrayList<Invitacion> invitaciones;
     private ArrayList<Asistencia> asistencias;
 
-    /*
+    /**
      * Constructor
+     * 
+     * @param organizador Empleado que organiza la reunión
+     * @param fecha Fecha de la reunión
+     * @param horaPrevista Hora prevista de la reunión
+     * @param duracionPrevista Duración prevista de la reunión
+     * @param horaInicio Hora de inicio de la reunión
+     * @param horaFin Hora de fin de la reunión
      */
     public Reunion(Empleado organizador, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin) {
         this.organizador = organizador;
@@ -41,7 +48,7 @@ public abstract class Reunion {
 
     public ArrayList<String> obtenerAsistencias() {
 
-        ArrayList<String> aux = new ArrayList<String>();        // Arreglo auxiliar
+        ArrayList<String> aux = new ArrayList<String>();
 
         for (int i = 0; i < asistencias.size(); i++) {
             aux.add(
