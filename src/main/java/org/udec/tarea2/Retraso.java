@@ -14,7 +14,7 @@ public class Retraso extends Asistencia {
      * @param empleado empleado que llega tarde
      * @param hora hora a la que llega el empleado
      */
-    public Retraso(Empleado empleado, Instant hora) {
+    public Retraso(Empleado empleado) {
         super(empleado);
         this.hora = Instant.now();
     }
