@@ -5,7 +5,7 @@ import java.time.Instant;
 import java.util.Date;
 
 /**
- * Clase que representa una reunión virtual
+ * Clase que representa una reunión virtual a la que asisten los empleados por medio de un enlace
  */
 public class ReunionVirtual extends Reunion {
     private String enlace;
@@ -24,6 +24,11 @@ public class ReunionVirtual extends Reunion {
     public ReunionVirtual(Empleado organizador, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin, String enlace) {
         super(organizador, fecha, horaPrevista, duracionPrevista, horaInicio, horaFin);
         this.enlace = enlace;
+    }
+
+    @Override
+    public String toString() {
+        return "Clase ReunionVirtual que representa una reunión virtual a la que asisten los empleados por medio de un enlace";
     }
 
     //Setters y Getters

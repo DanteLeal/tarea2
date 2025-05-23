@@ -4,6 +4,9 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
 
+/**
+ * Clase ReunionPresencial que representa una reunión presencial a la que asisten los empleados por una sala
+ */
 public class ReunionPresencial extends Reunion {
     private String sala;
 
@@ -23,6 +26,10 @@ public class ReunionPresencial extends Reunion {
         this.sala = sala;
     }
 
+    @Override
+    public String toString() {
+        return "Clase ReunionPresencial que representa una reunión presencial a la que asisten los empleados por una sala";
+    }
     // Getters y setters
     
     public String getSala() {
