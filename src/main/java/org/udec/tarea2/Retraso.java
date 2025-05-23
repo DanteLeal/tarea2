@@ -18,6 +18,11 @@ public class Retraso extends Asistencia {
         super(empleado);
         this.hora = Instant.now();
     }
+    
+    @Override
+    public String toString() {
+        return "Clase Retraso que representa un retraso en una reunión";
+    }
 
     // Getters y Setters
 

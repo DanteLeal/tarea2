@@ -16,6 +16,11 @@ public class Asistencia {
         this.asistente = empleado;
     }
 
+    @Override
+    public String toString() {
+        return "Clase Asistencia que representa una asistencia a una reunión";
+    }
+
     // Getters y Setters
 
     public Empleado getAsistente() {

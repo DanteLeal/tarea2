@@ -1,6 +1,9 @@
 package org.udec.tarea2;
 import java.util.ArrayList;
 
+/**
+ * Clase Departamento que representa un departamento en el que trabajan los empleados
+ */
 public class Departamento implements Invitable{
     private String nombre;
     private ArrayList<Empleado> empleados;
@@ -51,6 +54,11 @@ public class Departamento implements Invitable{
         for (int i = 0; i < empleados.size(); i++) {
             empleados.get(i).invitar(reunion);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Clase que representa un departamento en el que trabajan los empleados";
     }
 
     // Getters y Setters

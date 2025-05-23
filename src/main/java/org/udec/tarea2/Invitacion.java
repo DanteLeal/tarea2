@@ -19,6 +19,11 @@ public class Invitacion {
         this.hora = Instant.now();
     }
 
+    @Override
+    public String toString() {
+        return "Clase Invitacion que representa una invitación a una reunión";
+    }
+
     // Getters y setters
 
     public Empleado getInvitado() {
