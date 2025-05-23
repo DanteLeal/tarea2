@@ -127,8 +127,14 @@ public abstract class Reunion {
         }
     }
 
+    // Invitaciones
+
+    public void addInvitacion(Invitable invitable) {
+        invitaciones.add(new Invitacion(invitable));
+    }
+
     // Getters y setters
-    
+
     public Date getFecha() {
         return fecha;
     }
