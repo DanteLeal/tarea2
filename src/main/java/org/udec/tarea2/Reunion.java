@@ -41,8 +41,18 @@ public abstract class Reunion {
 
     public ArrayList<String> obtenerAsistencias() {
 
-        // todo: Return temporal, cambiar a futuro
-        return null;
+        ArrayList<String> aux = new ArrayList<String>();        // Arreglo auxiliar
+
+        for (int i = 0; i < asistencias.size(); i++) {
+            aux.add(
+                asistencias.get(i).getAsistente().getId() + ", " +
+                asistencias.get(i).getAsistente().getApellidos() + ", " + 
+                asistencias.get(i).getAsistente().getNombre() + ", " + 
+                asistencias.get(i).getAsistente().getCorreo()
+            );
+        }
+
+        return aux;
     }
 
     public ArrayList<String> obtenerAusencias() {
