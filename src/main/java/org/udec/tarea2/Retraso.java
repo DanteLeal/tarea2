@@ -15,4 +15,8 @@ public class Retraso extends Asistencia {
     public Instant getHora() {
         return hora;
     }
+
+    public void setHora(Instant hora) {
+        this.hora = hora;
+    }
 }
