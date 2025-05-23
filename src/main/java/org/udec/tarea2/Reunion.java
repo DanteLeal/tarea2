@@ -51,10 +51,28 @@ public abstract class Reunion {
         return null;
     }
 
+    /**
+     * Obtiene los retrasos de la reunión
+     * 
+     * @return Arreglo con los retrasos
+     */
     public ArrayList<String> obtenerRetrasos() {
+        ArrayList<String> aux = new ArrayList<String>();        // Arreglo auxiliar
 
-        // todo: Return temporal, cambiar a futuro
-        return null;
+        for (int i = 0; i < asistencias.size(); i++) {
+            if (asistencias.get(i) instanceof Retraso) {        // Si es un retraso
+                Retraso retraso = (Retraso)asistencias.get(i);  // Convertir a retraso
+                aux.add(
+                    retraso.getHora() + ", " +
+                    retraso.getAsistente().getId() + ", " +
+                    retraso.getAsistente().getApellidos() + ", " + 
+                    retraso.getAsistente().getNombre() + ", " + 
+                    retraso.getAsistente().getCorreo()
+                );
+            }
+        }
+
+        return aux;
     }
 
     public int obtenerTotalAsistencia() {
