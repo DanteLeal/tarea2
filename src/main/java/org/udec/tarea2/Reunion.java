@@ -291,4 +291,19 @@ public abstract class Reunion {
         this.organizador = organizador;
     }
 
+    public Instant getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(Instant horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public Instant getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(Instant horaFin) {
+        this.horaFin = horaFin;
+    }
 }
