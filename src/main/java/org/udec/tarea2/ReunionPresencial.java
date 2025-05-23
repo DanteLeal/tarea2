@@ -1,5 +1,8 @@
 package org.udec.tarea2;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -31,7 +34,7 @@ public class ReunionPresencial extends Reunion {
     public String toString() {
         return "Clase ReunionPresencial que representa una reunión presencial a la que asisten los empleados por una sala";
     }
-    
+
     @Override
     public String elaborarInforme() {
         String informe = "";
@@ -56,7 +59,15 @@ public class ReunionPresencial extends Reunion {
         informe += "\n";
         for (int i = 0; i < obtenerNotas().size(); i++) {
             informe += obtenerNotas().get(i);
-            informe += "\n";
+            if (i < obtenerNotas().size() - 1) {    // evitar el último salto de línea
+                informe += "\n";
+            }
+        }
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter("informe"))) {
+            writer.println(informe);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
         }
 
         return informe;
