@@ -265,6 +265,11 @@ public abstract class Reunion {
      */
     public abstract String elaborarInforme();
 
+    @Override
+    public String toString() {
+        return "Clase abstracta Reunion que define la estructura de una reunión";
+    }
+
     // Getters y setters
 
     public Date getFecha() {
