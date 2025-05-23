@@ -142,7 +142,7 @@ public abstract class Reunion {
      */
     public float calcularTiempoReal() {
         Duration duracion = Duration.between(horaInicio, horaFin);
-        return duracion.toSeconds();
+        return duracion.toSeconds() / 60f;
     }
 
     /**
