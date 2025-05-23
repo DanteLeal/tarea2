@@ -1,20 +1,28 @@
 package org.udec.tarea2;
 
+/**
+ * Clase Asistencia que representa una asistencia a una reunión
+ */
 public class Asistencia {
     
-    Empleado empleado;
+    Empleado asistente;
 
+    /**
+     * Constructor
+     * 
+     * @param empleado empleado asistente
+     */
     public Asistencia(Empleado empleado) {
-        this.empleado = empleado;
+        this.asistente = empleado;
     }
 
     // Getters y Setters
 
     public Empleado getAsistente() {
-        return empleado;
+        return asistente;
     }
 
     public void setAsistente(Empleado empleado) {
-        this.empleado = empleado;
+        this.asistente = empleado;
     }
 }
