@@ -198,9 +198,10 @@ public abstract class Reunion {
 
         ArrayList<String> aux = new ArrayList<>();
 
+        aux.add("Notas: ");
         for (int i = 0; i < notas.size(); i++) {
             int numero = i + 1;                                                                 
-            aux.add("Nota " + numero + ": " + notas.get(i).getContenido());
+            aux.add( numero + ". " + notas.get(i).getContenido());
         }
 
         return aux;
