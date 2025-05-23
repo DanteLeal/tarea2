@@ -2,6 +2,7 @@ package org.udec.tarea2;
 
 import java.util.Date;
 import java.time.Instant;
+import java.time.ZoneId;
 import java.time.Duration;
 import java.util.ArrayList;
 
@@ -52,10 +53,10 @@ public abstract class Reunion {
 
         for (int i = 0; i < asistencias.size(); i++) {
             aux.add(
-                asistencias.get(i).getAsistente().getId() + ", " +
-                asistencias.get(i).getAsistente().getApellidos() + ", " + 
-                asistencias.get(i).getAsistente().getNombre() + ", " + 
-                asistencias.get(i).getAsistente().getCorreo()
+                "ID: " + asistencias.get(i).getAsistente().getId() + ", " +
+                "Apellidos: " + asistencias.get(i).getAsistente().getApellidos() + ", " + 
+                "Nombre: " + asistencias.get(i).getAsistente().getNombre() + ", " + 
+                "Correo: " + asistencias.get(i).getAsistente().getCorreo()
             );
         }
 
@@ -104,11 +105,11 @@ public abstract class Reunion {
             if (asistencias.get(i) instanceof Retraso) {        // Si es un retraso
                 Retraso retraso = (Retraso)asistencias.get(i);  // Convertir a retraso
                 aux.add(
-                    retraso.getHora() + ", " +
-                    retraso.getAsistente().getId() + ", " +
-                    retraso.getAsistente().getApellidos() + ", " + 
-                    retraso.getAsistente().getNombre() + ", " + 
-                    retraso.getAsistente().getCorreo()
+                    "Hora: " + retraso.getHora().atZone(ZoneId.of("GMT-4")).toString() + ", " + // Obtener hora en GMT-4
+                    "ID: " + retraso.getAsistente().getId() + ", " +
+                    "Apellidos: "+ retraso.getAsistente().getApellidos() + ", " + 
+                    "Nombre: " + retraso.getAsistente().getNombre() + ", " + 
+                    "Correo: " + retraso.getAsistente().getCorreo()
                 );
             }
         }
@@ -227,11 +228,11 @@ public abstract class Reunion {
 
         for (int i = 0; i < invitaciones.size(); i++) {
             aux.add(
-                invitaciones.get(i).getHora() + ", " +
-                invitaciones.get(i).getInvitado().getId() + ", " + 
-                invitaciones.get(i).getInvitado().getApellidos() + ", " + 
-                invitaciones.get(i).getInvitado().getNombre() + ", " + 
-                invitaciones.get(i).getInvitado().getCorreo()
+                "Hora: " + invitaciones.get(i).getHora().atZone(ZoneId.of("GMT-4")).toString() + ", " + // Obtener hora en GMT-4
+                "ID: " + invitaciones.get(i).getInvitado().getId() + ", " + 
+                "Apellidos: "+ invitaciones.get(i).getInvitado().getApellidos() + ", " + 
+                "Nombre: " + invitaciones.get(i).getInvitado().getNombre() + ", " + 
+                "Correo: " + invitaciones.get(i).getInvitado().getCorreo()
             );
         }
 
