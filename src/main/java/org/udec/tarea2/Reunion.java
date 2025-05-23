@@ -116,7 +116,7 @@ public abstract class Reunion {
     /**
      * Lee las notas de la reunión
      */
-    public void readNotas() {
+    public void obtenerNotas() {
         if (notas.size() == 0) {
             return;
         }
@@ -128,15 +128,24 @@ public abstract class Reunion {
 
     // Invitaciones
 
-
     public void addInvitacion(Empleado empleado) {
         invitaciones.add(new Invitacion(empleado));
     }
 
     public void obtenerInvitaciones() {
         for (int i = 0; i < invitaciones.size(); i++) {
-            System.out.println("Invitación " + (i + 1) + ": " + invitaciones.get(i).getInvitado().getNombre() + " " + invitaciones.get(i).getInvitado().getApellidos());
+            System.out.println("Invitación " + (i + 1) + ": " + invitaciones.get(i).getInvitado().getId() + ", " + invitaciones.get(i).getInvitado().getApellidos() + ", " + invitaciones.get(i).getInvitado().getNombre() + ", " + invitaciones.get(i).getInvitado().getCorreo());
         }
+    }
+
+    // Asistencias
+
+    public void addAsistencia(Empleado empleado) {
+        asistencias.add(new Asistencia(empleado));
+    }
+
+    public void addRetraso(Empleado empleado) {
+        asistencias.add(new Retraso(empleado));
     }
 
     // Getters y setters
