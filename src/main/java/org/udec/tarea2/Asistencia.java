@@ -1,7 +1,5 @@
 package org.udec.tarea2;
 
-import java.util.ArrayList;
-
 public class Asistencia {
     
     Empleado asistente;
