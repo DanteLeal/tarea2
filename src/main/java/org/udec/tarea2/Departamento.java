@@ -58,7 +58,7 @@ public class Departamento implements Invitable{
 
     @Override
     public String toString() {
-        return "Clase que representa un departamento en el que trabajan los empleados";
+        return "Clase Departamento que representa un departamento en el que trabajan los empleados";
     }
 
     // Getters y Setters

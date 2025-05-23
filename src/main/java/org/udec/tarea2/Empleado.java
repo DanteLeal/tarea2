@@ -1,7 +1,7 @@
 package org.udec.tarea2;
 
 /**
- * Clase Empleado que implementa la interfaz Invitable
+ * Clase Empleado que representa a un empleado que puede asistir a una reunión y trabaja en un departamento
  */
 public class Empleado implements Invitable {
     private String id;
@@ -31,6 +31,11 @@ public class Empleado implements Invitable {
     public void invitar(Reunion reunion) {
         System.out.println("Se ha invitado al empleado " + this.nombre + " " + this.apellidos);
         reunion.addInvitacion(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Clase Empleado que representa a un empleado que puede asistir a una reunión y trabaja en un departamento";
     }
 
     // Getters y Setters
