@@ -2,19 +2,19 @@ package org.udec.tarea2;
 
 public class Asistencia {
     
-    Empleado asistente;
+    Empleado empleado;
 
     public Asistencia(Empleado empleado) {
-        this.asistente = empleado;
+        this.empleado = empleado;
     }
 
     // Getters y Setters
 
     public Empleado getAsistente() {
-        return asistente;
+        return empleado;
     }
 
-    public void setAsistente(Empleado asistente) {
-        this.asistente = asistente;
+    public void setAsistente(Empleado empleado) {
+        this.empleado = empleado;
     }
 }
