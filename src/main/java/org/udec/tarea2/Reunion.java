@@ -71,9 +71,9 @@ public abstract class Reunion {
     public ArrayList<String> obtenerAusencias() {
 
         ArrayList<String> aux = new ArrayList<String>();        // Arreglo auxiliar
-        boolean asistio = false;
 
         for (int i = 0; i < invitaciones.size(); i++) { // Recorrer invitaciones
+            boolean asistio = false;
             for (int j = 0; j < asistencias.size(); j++) { // Recorrer asistencias
                 if (invitaciones.get(i).getInvitado().getId() == asistencias.get(j).getAsistente().getId()) { // Si asistio
                     asistio = true;
