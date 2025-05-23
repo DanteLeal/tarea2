@@ -130,7 +130,10 @@ public abstract class Reunion {
     // Invitaciones
 
     public void addInvitacion(Invitable invitable) {
-        invitaciones.add(new Invitacion(invitable));
+        if (invitable == null) {
+            return;
+        }
+        invitable.invitar(this); // Invitar al empleado o departamento a esta reunión
     }
 
     // Getters y setters
