@@ -5,8 +5,10 @@ package org.udec.tarea2;
  *  
  */
 public interface Invitable {
-    /*
+    /**
      * Método para invitar a un empleado
+     * 
+     * @param reunion reunión
      */
     public void invitar(Reunion reunion);
 
