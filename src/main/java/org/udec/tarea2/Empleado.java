@@ -28,8 +28,8 @@ public class Empleado implements Invitable {
      * Invita al empleado
      */
     @Override
-    public void invitar() {
-        
+    public void invitar(Reunion reunion) {
+        reunion.addInvitacion(this);
     }
 
     // Getters y Setters
