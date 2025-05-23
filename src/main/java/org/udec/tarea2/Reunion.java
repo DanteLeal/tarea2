@@ -141,7 +141,8 @@ public abstract class Reunion {
      * @return Tiempo real en minutos   
      */
     public float calcularTiempoReal() {
-        return java.time.Duration.between(horaInicio, horaFin).toMinutes();
+        Duration duracion = Duration.between(horaInicio, horaFin);
+        return duracion.toSeconds();
     }
 
     /**
