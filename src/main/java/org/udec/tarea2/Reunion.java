@@ -52,12 +52,24 @@ public abstract class Reunion {
         ArrayList<String> aux = new ArrayList<String>();
 
         for (int i = 0; i < asistencias.size(); i++) {
-            aux.add(
-                "ID: " + asistencias.get(i).getAsistente().getId() + ", " +
-                "Apellidos: " + asistencias.get(i).getAsistente().getApellidos() + ", " + 
-                "Nombre: " + asistencias.get(i).getAsistente().getNombre() + ", " + 
-                "Correo: " + asistencias.get(i).getAsistente().getCorreo()
-            );
+            if (asistencias.get(i).getAsistente() instanceof Externo) {
+                Externo externo = (Externo)asistencias.get(i).getAsistente();
+                aux.add(
+                    "ID: " + externo.getId() + ", " + 
+                    "Apellidos: " + externo.getApellidos() + ", " + 
+                    "Nombre: " + externo.getNombre() + ", " + 
+                    "Correo: " + externo.getCorreo()
+                );
+            }
+            else if (asistencias.get(i).getAsistente() instanceof Empleado) {
+                Empleado empleado = (Empleado)asistencias.get(i).getAsistente();
+                aux.add(
+                    "ID: " + empleado.getId() + ", " + 
+                    "Apellidos: " + empleado.getApellidos() + ", " + 
+                    "Nombre: " + empleado.getNombre() + ", " + 
+                    "Correo: " + empleado.getCorreo()
+                );
+            }
         }
 
         return aux;
@@ -75,18 +87,67 @@ public abstract class Reunion {
 
         for (int i = 0; i < invitaciones.size(); i++) { // Recorrer invitaciones
             for (int j = 0; j < asistencias.size(); j++) { // Recorrer asistencias
-                if (invitaciones.get(i).getInvitado().getId() == asistencias.get(j).getAsistente().getId()) { // Si asistio
-                    asistio = true;
-                    break; // Salir del bucle
+
+                if (invitaciones.get(i).getInvitado() instanceof Externo) {
+                    Externo invitable = (Externo)invitaciones.get(i).getInvitado();
+
+                    if (asistencias.get(j).getAsistente() instanceof Externo) {
+                        Externo asistente = (Externo)asistencias.get(j).getAsistente();
+
+                        if (invitable.getId() == asistente.getId()) { // Si asistio
+                            asistio = true;
+                            break; // Salir del bucle
+                        }
+                    }
+                    else if (asistencias.get(j).getAsistente() instanceof Empleado) {
+                        Empleado asistente = (Empleado)asistencias.get(j).getAsistente();
+
+                        if (invitable.getId() == asistente.getId()) { // Si asistio
+                            asistio = true;
+                            break; // Salir del bucle
+                        }
+                    }
+                }
+                else if (invitaciones.get(i).getInvitado() instanceof Empleado) {
+                    Empleado invitable = (Empleado)invitaciones.get(i).getInvitado();
+
+                    if (asistencias.get(j).getAsistente() instanceof Externo) {
+                        Externo asistente = (Externo)asistencias.get(j).getAsistente();
+
+                        if (invitable.getId() == asistente.getId()) { // Si asistio
+                            asistio = true;
+                            break; // Salir del bucle
+                        }
+                    }
+                    else if (asistencias.get(j).getAsistente() instanceof Empleado) {
+                        Empleado asistente = (Empleado)asistencias.get(j).getAsistente();
+
+                        if (invitable.getId() == asistente.getId()) { // Si asistio
+                            asistio = true;
+                            break; // Salir del bucle
+                        }
+                    }
                 }
             }
             if (!asistio) { // Si no asistio, añadir al arreglo
-                aux.add(
-                    invitaciones.get(i).getInvitado().getId() + ", " +
-                    invitaciones.get(i).getInvitado().getApellidos() + ", " + 
-                    invitaciones.get(i).getInvitado().getNombre() + ", " + 
-                    invitaciones.get(i).getInvitado().getCorreo()
-                );
+                if (invitaciones.get(i).getInvitado() instanceof Externo) { // Si es externo
+                    Externo externo = (Externo)invitaciones.get(i).getInvitado(); // Convertir a externo
+                    aux.add(
+                        "ID: " + externo.getId() + ", " +
+                        "Apellidos: " + externo.getApellidos() + ", " +
+                        "Nombre: " + externo.getNombre() + ", " +
+                        "Correo: " + externo.getCorreo()
+                    );
+                }
+                else if (invitaciones.get(i).getInvitado() instanceof Empleado) { // Si es empleado
+                    Empleado empleado = (Empleado)invitaciones.get(i).getInvitado(); // Convertir a empleado
+                    aux.add(
+                        "ID: " + empleado.getId() + ", " +
+                        "Apellidos: " + empleado.getApellidos() + ", " +
+                        "Nombre: " + empleado.getNombre() + ", " +
+                        "Correo: " + empleado.getCorreo()
+                    );
+                }
             }
         }
 
@@ -102,14 +163,36 @@ public abstract class Reunion {
         ArrayList<String> aux = new ArrayList<String>();        // Arreglo auxiliar
 
         for (int i = 0; i < asistencias.size(); i++) {
-            if (asistencias.get(i) instanceof Retraso) {        // Si es un retraso
-                Retraso retraso = (Retraso)asistencias.get(i);  // Convertir a retraso
+            if (asistencias.get(i).getAsistente() instanceof Retraso) {        // Si es retraso
+                Retraso retraso = (Retraso)asistencias.get(i).getAsistente();  // Convertir a retraso
+                if (retraso.getAsistente() instanceof Externo) {
+                    Externo externo = (Externo)retraso.getAsistente();
+                    aux.add(
+                        "Hora: " + retraso.getHora().atZone(ZoneId.of("GMT-4")).toString() + ", " + // Obtener hora en GMT-4
+                        "ID: " + externo.getId() + ", " +
+                        "Apellidos: "+ externo.getApellidos() + ", " + 
+                        "Nombre: " + externo.getNombre() + ", " + 
+                        "Correo: " + externo.getCorreo()
+                    );
+                }
+                else if (retraso.getAsistente() instanceof Empleado) {
+                    Empleado empleado = (Empleado)retraso.getAsistente();
+                    aux.add(
+                        "Hora: " + retraso.getHora().atZone(ZoneId.of("GMT-4")).toString() + ", " + // Obtener hora en GMT-4
+                        "ID: " + empleado.getId() + ", " +
+                        "Apellidos: "+ empleado.getApellidos() + ", " + 
+                        "Nombre: " + empleado.getNombre() + ", " + 
+                        "Correo: " + empleado.getCorreo()
+                    );
+                }
+            }
+            else if (asistencias.get(i).getAsistente() instanceof Empleado) {
+                Empleado empleado = (Empleado)asistencias.get(i).getAsistente();
                 aux.add(
-                    "Hora: " + retraso.getHora().atZone(ZoneId.of("GMT-4")).toString() + ", " + // Obtener hora en GMT-4
-                    "ID: " + retraso.getAsistente().getId() + ", " +
-                    "Apellidos: "+ retraso.getAsistente().getApellidos() + ", " + 
-                    "Nombre: " + retraso.getAsistente().getNombre() + ", " + 
-                    "Correo: " + retraso.getAsistente().getCorreo()
+                    "ID: " + empleado.getId() + ", " +
+                    "Apellidos: "+ empleado.getApellidos() + ", " + 
+                    "Nombre: " + empleado.getNombre() + ", " + 
+                    "Correo: " + empleado.getCorreo()
                 );
             }
         }
@@ -210,12 +293,24 @@ public abstract class Reunion {
     // Invitaciones
 
     /**
-     * Agrega una invitación a la reunión para un empleado.
+     * Agrega una invitación a la reunión para una persona
      * 
-     * @param empleado El empleado que será invitado a la reunión.
+     * @param invitable La persona que se va a invitar a la reunión
      */
-    public void addInvitacion(Empleado empleado) {
-        invitaciones.add(new Invitacion(empleado));
+    public void addInvitacion(Invitable invitable) {
+        if (invitable == null) {
+            return;
+        }
+
+        if (invitable instanceof Departamento) {    // Si es un departamento
+            Departamento departamento = (Departamento)invitable;    // Convertir a departamento
+            for (int i = 0; i < departamento.obtenerCantidadEmpleados(); i++) {     // Recorrer empleados
+                invitaciones.add(new Invitacion(departamento.getEmpleado(i)));      // Agregar a la lista de invitación
+            }
+            return; // Salir del bucle
+        }
+
+        invitaciones.add(new Invitacion(invitable));
     }
 
     /**
@@ -228,13 +323,26 @@ public abstract class Reunion {
         ArrayList<String> aux = new ArrayList<String>();
 
         for (int i = 0; i < invitaciones.size(); i++) {
-            aux.add(
-                "Hora: " + invitaciones.get(i).getHora().atZone(ZoneId.of("GMT-4")).toString() + ", " + // Obtener hora en GMT-4
-                "ID: " + invitaciones.get(i).getInvitado().getId() + ", " + 
-                "Apellidos: "+ invitaciones.get(i).getInvitado().getApellidos() + ", " + 
-                "Nombre: " + invitaciones.get(i).getInvitado().getNombre() + ", " + 
-                "Correo: " + invitaciones.get(i).getInvitado().getCorreo()
-            );
+            if (invitaciones.get(i).getInvitado() instanceof Externo) {
+                Externo externo = (Externo)invitaciones.get(i).getInvitado();
+                aux.add(
+                    "Hora: " + invitaciones.get(i).getHora().atZone(ZoneId.of("GMT-4")).toString() + ", " + // Obtener hora en GMT-4
+                    "ID: " + externo.getId() + ", " +
+                    "Apellidos: " + externo.getApellidos() + ", " +
+                    "Nombre: " + externo.getNombre() + ", " +
+                    "Correo: " + externo.getCorreo()
+                );
+            }
+            else if (invitaciones.get(i).getInvitado() instanceof Empleado) {   
+                Empleado empleado = (Empleado)invitaciones.get(i).getInvitado();
+                aux.add(
+                    "Hora: " + invitaciones.get(i).getHora().atZone(ZoneId.of("GMT-4")).toString() + ", " + // Obtener hora en GMT-4
+                    "ID: " + empleado.getId() + ", " +
+                    "Apellidos: " + empleado.getApellidos() + ", " +
+                    "Nombre: " + empleado.getNombre() + ", " +
+                    "Correo: " + empleado.getCorreo()
+                );
+            }
         }
 
         return aux;

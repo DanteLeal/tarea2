@@ -5,15 +5,15 @@ package org.udec.tarea2;
  */
 public class Asistencia {
     
-    Empleado asistente;
+    Invitable asistente;
 
     /**
      * Constructor
      * 
-     * @param empleado empleado asistente
+     * @param invitable persona asistente
      */
-    public Asistencia(Empleado empleado) {
-        this.asistente = empleado;
+    public Asistencia(Invitable invitable) {
+        this.asistente = invitable;
     }
 
     @Override
@@ -23,11 +23,11 @@ public class Asistencia {
 
     // Getters y Setters
 
-    public Empleado getAsistente() {
+    public Invitable getAsistente() {
         return asistente;
     }
 
-    public void setAsistente(Empleado empleado) {
-        this.asistente = empleado;
+    public void setAsistente(Invitable invitable) {
+        this.asistente = invitable;
     }
 }

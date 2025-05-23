@@ -70,4 +70,12 @@ public class Departamento implements Invitable{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public Empleado getEmpleado(int i) {
+        return this.empleados.get(i);
+    }
+
+    public void setEmpleado(int i, Empleado empleado) {
+        this.empleados.set(i, empleado);
+    }
 }

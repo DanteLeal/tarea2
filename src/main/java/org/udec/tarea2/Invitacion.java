@@ -6,16 +6,16 @@ import java.time.Instant;
  * Clase Invitacion que representa una invitación a una reunión
  */
 public class Invitacion {
-    private Empleado invitado;
+    private Invitable invitado;
     private Instant hora;
 
     /**
      * Constructor de la clase Invitacion
      * 
-     * @param empleado empleado a invitar
+     * @param invitable persona a invitar
      */
-    public Invitacion(Empleado empleado) {
-        this.invitado = empleado;
+    public Invitacion(Invitable invitable) {
+        this.invitado = invitable;
         this.hora = Instant.now();
     }
 
@@ -26,12 +26,12 @@ public class Invitacion {
 
     // Getters y setters
 
-    public Empleado getInvitado() {
+    public Invitable getInvitado() {
         return invitado;
     }
 
-    public void setInvitado(Empleado empleado) {
-        this.invitado = empleado;
+    public void setInvitado(Invitable invitable) {
+        this.invitado = invitable;
     }
 
     public Instant getHora() {
