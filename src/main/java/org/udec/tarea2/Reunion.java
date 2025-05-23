@@ -1,7 +1,6 @@
 package org.udec.tarea2;
 
 import java.util.Date;
-import java.util.List;
 import java.time.Instant;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -136,7 +135,7 @@ public abstract class Reunion {
 
     public void obtenerInvitaciones() {
         for (int i = 0; i < invitaciones.size(); i++) {
-            System.out.println("Invitación " + (i + 1) + ": " + invitaciones.get(i).getInvitado().getNombre() + " " + invitaciones.get(i).getInvitado().getApellidos());
+            System.out.println("Invitación " + (i + 1) + ": " + invitaciones.get(i).getInvitado().getNombre() + " " + invitaciones.get(i).getInvitado().getApellidos());
         }
     }
 
