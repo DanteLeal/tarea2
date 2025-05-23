@@ -2,9 +2,18 @@ package org.udec.tarea2;
 
 import java.time.Instant;
 
+/**
+ *  Clase Retraso que representa un retraso en una reunión
+ */
 public class Retraso extends Asistencia {
     private Instant hora;
 
+    /**
+     * Constructor
+     * 
+     * @param empleado empleado que llega tarde
+     * @param hora hora a la que llega el empleado
+     */
     public Retraso(Empleado empleado, Instant hora) {
         super(empleado);
         this.hora = Instant.now();
