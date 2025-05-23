@@ -2,6 +2,7 @@ package org.udec.tarea2;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.time.ZoneId;
 import java.util.Date;
 
 /**
@@ -30,6 +31,37 @@ public class ReunionPresencial extends Reunion {
     public String toString() {
         return "Clase ReunionPresencial que representa una reunión presencial a la que asisten los empleados por una sala";
     }
+    
+    @Override
+    public String elaborarInforme() {
+        String informe = "";
+
+        informe += "Fecha: \n" + fecha + "\n\n";
+        informe += "Hora prevista: \n" + horaPrevista.atZone(ZoneId.of("GMT-4")).toString() + "\n\n";
+        informe += "Hora inicio: \n" + horaInicio.atZone(ZoneId.of("GMT-4")).toString() + "\n\n";
+        informe += "Hora fin: \n" + horaFin + "\n\n";
+        informe += "Duracion total: \n" + calcularTiempoReal() + " minutos" + "\n\n";
+        informe += "Sala: \n" + sala + "\n\n";
+        informe += "Lista de participantes: \n";
+        for (int i = 0; i < obtenerAsistencias().size(); i++) {
+            informe += obtenerAsistencias().get(i);
+            informe += "\n";
+        }
+        informe += "\n";
+        informe += "Información sobre retrasos:\n";
+        for (int i = 0; i < obtenerRetrasos().size(); i++) {
+            informe += obtenerRetrasos().get(i);
+            informe += "\n";
+        }
+        informe += "\n";
+        for (int i = 0; i < obtenerNotas().size(); i++) {
+            informe += obtenerNotas().get(i);
+            informe += "\n";
+        }
+
+        return informe;
+    }
+    
     // Getters y setters
     
     public String getSala() {
@@ -39,5 +71,4 @@ public class ReunionPresencial extends Reunion {
     public void setSala(String sala) {
         this.sala = sala;
     }
-
 }
