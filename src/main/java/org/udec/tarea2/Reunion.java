@@ -88,6 +88,8 @@ public abstract class Reunion {
         horaFin = Instant.now();
     }
 
+    // Notas
+
     /**
      * Agrega una nota a la reunión
      * 
@@ -126,6 +128,7 @@ public abstract class Reunion {
     }
 
     // Getters y setters
+    
     public Date getFecha() {
         return fecha;
     }
