@@ -12,7 +12,7 @@ public class Invitacion {
     /**
      * Constructor de la clase Invitacion
      * 
-     * @param invitable empleado a invitar
+     * @param empleado empleado a invitar
      */
     public Invitacion(Empleado empleado) {
         this.invitado = empleado;
