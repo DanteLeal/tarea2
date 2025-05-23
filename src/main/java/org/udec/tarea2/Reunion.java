@@ -10,13 +10,13 @@ import java.util.ArrayList;
  */
 public abstract class Reunion {
 
-    private Empleado organizador;
+    protected Empleado organizador;
 
-    private Date fecha;
-    private Instant horaPrevista;
+    protected Date fecha;
+    protected Instant horaPrevista;
     private Duration duracionPrevista;
-    private Instant horaInicio;
-    private Instant horaFin;
+    protected Instant horaInicio;
+    protected Instant horaFin;
 
     private ArrayList<Nota> notas;
     private ArrayList<Invitacion> invitaciones;
@@ -257,6 +257,13 @@ public abstract class Reunion {
     public void addRetraso(Empleado empleado) {
         asistencias.add(new Retraso(empleado));
     }
+
+    /**
+     * Genera un informe de la reunión
+     * 
+     * @return El informe de la reunión
+     */
+    public abstract String elaborarInforme();
 
     // Getters y setters
 
