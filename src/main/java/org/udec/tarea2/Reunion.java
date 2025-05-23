@@ -105,7 +105,7 @@ public abstract class Reunion {
      * @param nota
      */
     public void removeNota(int nota) {
-        if (notas.size() == 0) {
+        if (notas.size() == 0) {                                                // Verificar que la lista de notas no esté vacía
             return;
         }
         int index = nota - 1;                                                   // Calcular el índice
