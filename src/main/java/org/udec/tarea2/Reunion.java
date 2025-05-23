@@ -55,10 +55,34 @@ public abstract class Reunion {
         return aux;
     }
 
+    /**
+     * Obtiene las ausencias de la reunión
+     * 
+     * @return Arreglo con las ausencias
+     */
     public ArrayList<String> obtenerAusencias() {
 
-        // todo: Return temporal, cambiar a futuro
-        return null;
+        ArrayList<String> aux = new ArrayList<String>();        // Arreglo auxiliar
+        boolean asistio = false;
+
+        for (int i = 0; i < invitaciones.size(); i++) { // Recorrer invitaciones
+            for (int j = 0; j < asistencias.size(); j++) { // Recorrer asistencias
+                if (invitaciones.get(i).getInvitado().getId() == asistencias.get(j).getAsistente().getId()) { // Si asistio
+                    asistio = true;
+                    break; // Salir del bucle
+                }
+            }
+            if (!asistio) { // Si no asistio, añadir al arreglo
+                aux.add(
+                    invitaciones.get(i).getInvitado().getId() + ", " +
+                    invitaciones.get(i).getInvitado().getApellidos() + ", " + 
+                    invitaciones.get(i).getInvitado().getNombre() + ", " + 
+                    invitaciones.get(i).getInvitado().getCorreo()
+                );
+            }
+        }
+
+        return aux;
     }
 
     /**
@@ -85,18 +109,30 @@ public abstract class Reunion {
         return aux;
     }
 
+    /**
+     * Obtiene el total de asistencias
+     * 
+     * @return Total de asistencias 
+     */
     public int obtenerTotalAsistencia() {
-
-        // todo: Return temporal, cambiar a futuro
-        return 0;
+        return asistencias.size();
     }
 
+    /**
+     * Obtiene el porcentaje de asistencia a la reunión.
+     * 
+     * @return Porcentaje de asistencia calculado como el número de asistencias
+     * dividido por el número de invitaciones.
+     */
     public float obtenerPorcentajeAsistencia() {
-
-        // todo: Return temporal, cambiar a futuro
-        return 0;
+        return (float)asistencias.size() / (float)invitaciones.size();
     }
 
+    /**
+     * Calcula el tiempo real de la reunión
+     * 
+     * @return Tiempo real en minutos   
+     */
     public float calcularTiempoReal() {
         return java.time.Duration.between(horaInicio, horaFin).toMinutes();
     }
@@ -143,6 +179,8 @@ public abstract class Reunion {
 
     /**
      * Lee las notas de la reunión
+     * 
+     * @return Arreglo con las notas
      */
     public ArrayList<String> obtenerNotas() {
         if (notas.size() == 0) {
@@ -161,10 +199,21 @@ public abstract class Reunion {
 
     // Invitaciones
 
+    /**
+     * Agrega una invitación a la reunión para un empleado.
+     * 
+     * @param empleado El empleado que será invitado a la reunión.
+     */
     public void addInvitacion(Empleado empleado) {
         invitaciones.add(new Invitacion(empleado));
     }
 
+    /**
+     * Obtiene las invitaciones de la reunión.
+     * 
+     * @return Un arreglo de cadenas con la información de las invitaciones,
+     * incluyendo la hora, id, apellidos, nombre y correo del invitado.
+     */
     public ArrayList<String> obtenerInvitaciones() {
         ArrayList<String> aux = new ArrayList<String>();
 
@@ -183,10 +232,20 @@ public abstract class Reunion {
 
     // Asistencias
 
+    /**
+     * Agrega una asistencia a la reunión para un empleado.
+     * 
+     * @param empleado El empleado que asistirá a la reunión.
+     */
     public void addAsistencia(Empleado empleado) {
         asistencias.add(new Asistencia(empleado));
     }
 
+    /**
+     * Agrega un retraso a la reunión para un empleado.
+     * 
+     * @param empleado El empleado que asistirá a la reunión con retraso.
+     */
     public void addRetraso(Empleado empleado) {
         asistencias.add(new Retraso(empleado));
     }
