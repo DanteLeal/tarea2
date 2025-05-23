@@ -2,7 +2,6 @@ package org.udec.tarea2;
 
 import java.util.Date;
 import java.time.Instant;
-import java.lang.reflect.Array;
 import java.time.Duration;
 import java.util.ArrayList;
 
