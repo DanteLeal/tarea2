@@ -33,7 +33,7 @@ public abstract class Reunion {
      * @param horaInicio Hora de inicio de la reunión
      * @param horaFin Hora de fin de la reunión
      */
-    public Reunion(Empleado organizador, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin) {
+    public Reunion(Empleado organizador, int id, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin) {
         this.organizador = organizador;
 
         this.fecha = fecha;
@@ -45,6 +45,18 @@ public abstract class Reunion {
         this.notas = new ArrayList<Nota>();
         this.invitaciones = new ArrayList<Invitacion>();
         this.asistencias = new ArrayList<Asistencia>();
+
+        this.invitaciones.add(new Invitacion(organizador)); // Agrega el organizador como invitado inmediatamente
+
+        if (id == tipoReunion.TECNICA.getId()) {
+            notas.add(new Nota(tipoReunion.TECNICA.getDescripcion()));
+        }
+        else if (id == tipoReunion.MARKETING.getId()) {
+            notas.add(new Nota(tipoReunion.MARKETING.getDescripcion()));
+        }
+        else if (id == tipoReunion.OTRO.getId()) {
+            notas.add(new Nota(tipoReunion.OTRO.getDescripcion()));
+        }
     }
 
     public ArrayList<String> obtenerAsistencias() {

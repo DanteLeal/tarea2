@@ -4,20 +4,20 @@ package org.udec.tarea2;
  * Clase Enum que representa los tipos de reuniones
  */
 public enum tipoReunion {
-    TECNICA("1", "Reunión técnica enfocada en aspectos de desarrollo o infraestructura"),
-    MARKETING("2", "Reunión para discutir estrategias y acciones de marketing"),
-    OTRO("3", "Otro tipo de reunión no clasificada");
+    TECNICA(1, "Reunión técnica enfocada en aspectos de desarrollo o infraestructura"),
+    MARKETING(2, "Reunión para discutir estrategias y acciones de marketing"),
+    OTRO(3, "Otro tipo de reunión no clasificada");
 
-    private String id;
+    private int id;
     private String descripcion;
 
     /**
      * Constructor
      * 
-     * @param id
-     * @param descripcion
+     * @param id representa el id del tipo de reunion
+     * @param descripcion representa la descripcion del tipo de reunion
      */
-    tipoReunion(String id, String descripcion) {
+    tipoReunion(int id, String descripcion) {
         this.id = id;
         this.descripcion = descripcion;
     }
@@ -37,11 +37,11 @@ public enum tipoReunion {
         this.descripcion = descripcion;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
