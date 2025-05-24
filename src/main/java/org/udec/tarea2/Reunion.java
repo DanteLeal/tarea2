@@ -11,13 +11,13 @@ import java.util.ArrayList;
  */
 public abstract class Reunion {
 
-    protected Empleado organizador;
+    private Empleado organizador;
 
-    protected Date fecha;
-    protected Instant horaPrevista;
+    private Date fecha;
+    private Instant horaPrevista;
     private Duration duracionPrevista;
-    protected Instant horaInicio;
-    protected Instant horaFin;
+    private Instant horaInicio;
+    private Instant horaFin;
 
     private ArrayList<Nota> notas;
     private ArrayList<Invitacion> invitaciones;

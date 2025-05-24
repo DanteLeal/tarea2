@@ -36,10 +36,10 @@ public class ReunionVirtual extends Reunion {
     public String elaborarInforme() {
         String informe = "";
 
-        informe += "Fecha: \n" + fecha + "\n\n";
-        informe += "Hora prevista: \n" + horaPrevista.atZone(ZoneId.of("GMT-4")).toString() + "\n\n";
-        informe += "Hora inicio: \n" + horaInicio.atZone(ZoneId.of("GMT-4")).toString() + "\n\n";
-        informe += "Hora fin: \n" + horaFin + "\n\n";
+        informe += "Fecha: \n" + getFecha() + "\n\n";
+        informe += "Hora prevista: \n" + getHoraPrevista().atZone(ZoneId.of("GMT-4")).toString() + "\n\n";
+        informe += "Hora inicio: \n" + getHoraInicio().atZone(ZoneId.of("GMT-4")).toString() + "\n\n";
+        informe += "Hora fin: \n" + getHoraFin() + "\n\n";
         informe += "Duracion total: \n" + calcularTiempoReal() + " minutos" + "\n\n";
         informe += "Enlace: \n" + enlace + "\n\n";
         informe += "Lista de participantes: \n";
