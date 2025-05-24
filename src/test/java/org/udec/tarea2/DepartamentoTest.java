@@ -49,7 +49,7 @@ class DepartamentoTest {
     }
 
     @Test
-    void removeEmpleado() {
+    void addremoveEmpleado() {
         departamento.addEmpleado(e1);
         departamento.addEmpleado(e2);
         departamento.addEmpleado(e3);
