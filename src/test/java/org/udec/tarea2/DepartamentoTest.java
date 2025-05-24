@@ -25,7 +25,7 @@ class DepartamentoTest {
         e1 = new Empleado("1", "once", "uno", "uno@email.com" );
         e2 = new Empleado("2", "dos", "dos", "dos@email.com" );
         e3 = new Empleado("3", "tres", "tres", "tres@email.com" );
-        reunion = new ReunionVirtual(e1, new Date(), Instant.now(), Duration.ofMinutes(30), Instant.now(), Instant.now(), "https://meet.google.com");
+        reunion = new ReunionVirtual(e1, 1, new Date(), Instant.now(), Duration.ofMinutes(30), Instant.now(), Instant.now(), "https://meet.google.com");
     }
 
     @AfterEach
@@ -61,6 +61,9 @@ class DepartamentoTest {
 
     @Test
     void invitar() {
+        departamento.addEmpleado(e1);
+        departamento.addEmpleado(e2);
+        departamento.addEmpleado(e3);
         departamento.invitar(reunion);
         assertEquals(3, reunion.obtenerInvitaciones().size());
     }
