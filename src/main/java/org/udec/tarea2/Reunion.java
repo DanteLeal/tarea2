@@ -46,7 +46,7 @@ public abstract class Reunion {
         this.invitaciones = new ArrayList<Invitacion>();
         this.asistencias = new ArrayList<Asistencia>();
 
-        this.invitaciones.add(new Invitacion(organizador)); // Agrega el organizador como invitado inmediatamente
+        //this.invitaciones.add(new Invitacion(organizador)); // Agrega el organizador como invitado inmediatamente
 
         if (id == tipoReunion.TECNICA.getId()) {
             notas.add(new Nota(tipoReunion.TECNICA.getDescripcion()));
