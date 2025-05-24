@@ -11,11 +11,11 @@ public class Retraso extends Asistencia {
     /**
      * Constructor
      * 
-     * @param empleado empleado que llega tarde
-     * @param hora hora a la que llega el empleado
+     * @param persona persona que llega tarde
+     * @param hora hora a la que llega el persona
      */
-    public Retraso(Empleado empleado) {
-        super(empleado);
+    public Retraso(Persona persona) {
+        super(persona);
         this.hora = Instant.now();
     }
     

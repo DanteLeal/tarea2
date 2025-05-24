@@ -11,13 +11,13 @@ import java.util.ArrayList;
  */
 public abstract class Reunion {
 
-    protected Empleado organizador;
+    private Empleado organizador;
 
-    protected Date fecha;
-    protected Instant horaPrevista;
+    private Date fecha;
+    private Instant horaPrevista;
     private Duration duracionPrevista;
-    protected Instant horaInicio;
-    protected Instant horaFin;
+    private Instant horaInicio;
+    private Instant horaFin;
 
     private ArrayList<Nota> notas;
     private ArrayList<Invitacion> invitaciones;
@@ -33,7 +33,7 @@ public abstract class Reunion {
      * @param horaInicio Hora de inicio de la reunión
      * @param horaFin Hora de fin de la reunión
      */
-    public Reunion(Empleado organizador, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin) {
+    public Reunion(Empleado organizador, int id, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin) {
         this.organizador = organizador;
 
         this.fecha = fecha;
@@ -45,6 +45,18 @@ public abstract class Reunion {
         this.notas = new ArrayList<Nota>();
         this.invitaciones = new ArrayList<Invitacion>();
         this.asistencias = new ArrayList<Asistencia>();
+
+        this.invitaciones.add(new Invitacion(organizador)); // Agrega el organizador como invitado inmediatamente
+
+        if (id == tipoReunion.TECNICA.getId()) {
+            notas.add(new Nota(tipoReunion.TECNICA.getDescripcion()));
+        }
+        else if (id == tipoReunion.MARKETING.getId()) {
+            notas.add(new Nota(tipoReunion.MARKETING.getDescripcion()));
+        }
+        else if (id == tipoReunion.OTRO.getId()) {
+            notas.add(new Nota(tipoReunion.OTRO.getDescripcion()));
+        }
     }
 
     public ArrayList<String> obtenerAsistencias() {
@@ -210,13 +222,13 @@ public abstract class Reunion {
     // Invitaciones
 
     /**
-     * Agrega una invitación a la reunión para un empleado.
+     * Agrega una invitación a la reunión para una persona.
      * 
-     * @param empleado El empleado que será invitado a la reunión.
+     * @param persona la persona que será invitado a la reunión.
      */
-    public void addInvitacion(Empleado empleado) {
-        invitaciones.add(new Invitacion(empleado));
-        }
+    public void addInvitacion(Persona persona) {
+        invitaciones.add(new Invitacion(persona));
+    }
 
     /**
      * Obtiene las invitaciones de la reunión.
@@ -235,29 +247,28 @@ public abstract class Reunion {
                 "Nombre: " + invitaciones.get(i).getInvitado().getNombre() + ", " + 
                 "Correo: " + invitaciones.get(i).getInvitado().getCorreo()
             );
-                    }
-
+        }
         return aux;
     }
 
     // Asistencias
 
     /**
-     * Agrega una asistencia a la reunión para un empleado.
+     * Agrega una asistencia a la reunión para una persona.
      * 
-     * @param empleado El empleado que asistirá a la reunión.
+     * @param persona La persona que asistirá a la reunión.
      */
-    public void addAsistencia(Empleado empleado) {
-        asistencias.add(new Asistencia(empleado));
+    public void addAsistencia(Persona persona) {
+        asistencias.add(new Asistencia(persona));
     }
 
     /**
-     * Agrega un retraso a la reunión para un empleado.
+     * Agrega un retraso a la reunión para una persona.
      * 
-     * @param empleado El empleado que asistirá a la reunión con retraso.
+     * @param persona La persona que asistirá a la reunión con retraso.
      */
-    public void addRetraso(Empleado empleado) {
-        asistencias.add(new Retraso(empleado));
+    public void addRetraso(Persona persona) {
+        asistencias.add(new Retraso(persona));
     }
 
     /**
@@ -301,8 +312,8 @@ public abstract class Reunion {
     public Empleado getOrganizador() {
         return organizador;
     }
-    public void setOrganizador(Empleado organizador) {
-        this.organizador = organizador;
+    public void setOrganizador(Empleado empleado) {
+        this.organizador = empleado;
     }
 
     public Instant getHoraInicio() {

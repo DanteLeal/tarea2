@@ -25,8 +25,8 @@ public class ReunionPresencial extends Reunion {
      * @param horaFin hora de finalización de la reunión
      * @param sala sala de la reunión presencial
      */
-    public ReunionPresencial(Empleado organizador, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin, String sala) {
-        super(organizador , fecha, horaPrevista, duracionPrevista, horaInicio, horaFin);
+    public ReunionPresencial(Empleado organizador, int id, Date fecha, Instant horaPrevista, Duration duracionPrevista, Instant horaInicio, Instant horaFin, String sala) {
+        super(organizador, id, fecha, horaPrevista, duracionPrevista, horaInicio, horaFin);
         this.sala = sala;
     }
 
@@ -39,10 +39,10 @@ public class ReunionPresencial extends Reunion {
     public String elaborarInforme() {
         String informe = "";
 
-        informe += "Fecha: \n" + fecha + "\n\n";
-        informe += "Hora prevista: \n" + horaPrevista.atZone(ZoneId.of("GMT-4")).toString() + "\n\n";
-        informe += "Hora inicio: \n" + horaInicio.atZone(ZoneId.of("GMT-4")).toString() + "\n\n";
-        informe += "Hora fin: \n" + horaFin + "\n\n";
+        informe += "Fecha: \n" + getFecha() + "\n\n";
+        informe += "Hora prevista: \n" + getHoraPrevista().atZone(ZoneId.of("GMT-4")).toString() + "\n\n";
+        informe += "Hora inicio: \n" + getHoraInicio().atZone(ZoneId.of("GMT-4")).toString() + "\n\n";
+        informe += "Hora fin: \n" + getHoraFin() + "\n\n";
         informe += "Duracion total: \n" + calcularTiempoReal() + " minutos" + "\n\n";
         informe += "Sala: \n" + sala + "\n\n";
         informe += "Lista de participantes: \n";

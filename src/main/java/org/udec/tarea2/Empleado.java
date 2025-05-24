@@ -3,11 +3,7 @@ package org.udec.tarea2;
 /**
  * Clase Empleado que representa a un empleado que puede asistir a una reunión y trabaja en un departamento
  */
-public class Empleado implements Invitable {
-    private String id;
-    private String apellidos;
-    private String nombre;
-    private String correo;
+public class Empleado extends Persona {
 
     /**
      * Constructor
@@ -18,10 +14,7 @@ public class Empleado implements Invitable {
      * @param correo
      */
     public Empleado(String id, String apellidos, String nombre, String correo) {
-        this.id = id;
-        this.apellidos = apellidos;
-        this.nombre = nombre;
-        this.correo = correo;
+        super(id, apellidos, nombre, correo);
     }
 
     /**
@@ -29,7 +22,7 @@ public class Empleado implements Invitable {
      */
     @Override
     public void invitar(Reunion reunion) {
-        System.out.println("Se ha invitado al empleado " + this.nombre + " " + this.apellidos);
+        System.out.println("Se ha invitado al empleado " + getNombre() + " " + getApellidos());
         reunion.addInvitacion(this);
     }
 
@@ -41,34 +34,34 @@ public class Empleado implements Invitable {
     // Getters y Setters
 
     public String getId() {
-        return id;
+        return super.getId();
     }
 
     public void setId(String id) {
-        this.id = id;
+        super.setId(id);
     }
 
     public String getApellidos() {
-        return apellidos;
+        return super.getApellidos();
     }
 
     public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+        super.setApellidos(apellidos);
     }
 
     public String getNombre() {
-        return nombre;
+        return super.getNombre();
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        super.setNombre(nombre);
     }
 
     public String getCorreo() {
-        return correo;
+        return super.getCorreo();
     }
 
     public void setCorreo(String correo) {
-        this.correo = correo;
+        super.setCorreo(correo);
     }
 }
